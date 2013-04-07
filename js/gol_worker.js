@@ -27,14 +27,20 @@ new Ruleset("Amoeba", Arrays.asList(Arrays.asList(3), Arrays.asList(4, 5, 6, 7, 
 new Ruleset("Diamonds", Arrays.asList(Arrays.asList(3, 4, 5, 6, 7, 8), Arrays.asList(4, 5, 6, 7))), 
 */
 
-var conway = makeRuleArray();
-conway[0][3] = true;
-conway[1][2] = true;
-conway[1][3] = true;
+var conwayRules = makeRuleArray();
+conwayRules[0][3] = true;
+conwayRules[1][2] = true;
+conwayRules[1][3] = true;
 
-var amoeba_rules = makeRuleArray();
+var amoebaRules = makeRuleArray();
+amoebaRules[0][3] = true;
+amoebaRules[1][4] = true;
+amoebaRules[1][5] = true;
+amoebaRules[1][6] = true;
+amoebaRules[1][7] = true;
+amoebaRules[1][8] = true;
 
-var rules = conway;
+var rules = conwayRules;
 
 function makeRuleArray(){
     var ruleArray = new Array();    
@@ -74,7 +80,10 @@ var GoL = {
 
   setRules: function(r) {
     if (r === "Amoeba") {
-        rules = amoeba_rules;
+        rules = amoebaRules;
+    }
+    else if(r === "Conway's Original"){
+        rules = conwayRules;
     }
   },
 
