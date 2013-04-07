@@ -7,24 +7,24 @@ var NUM_GENERATIONS = 30;
 var ALIVE = 11;
 var NUM_NEIGHBORS = 8;
 
-var rules = new Array();
-
-for(var rx = 0; rx < 2; rx++) {
-    rules[rx] = new Array();
-    for(var ry = 0; ry <= NUM_NEIGHBORS; ry++)
-        rules[rx][ry] = false;
-}
-
+var conway = makeRuleArray();
 rules[0][3] = true;
 rules[1][2] = true;
 rules[1][3] = true;
 
-var amoeba_rules = new Array();
+var amoeba_rules = makeRuleArray();
 
-for(var rx = 0; rx < 2; rx++) {
-    amoeba_rules[rx] = new Array();
-    for(var ry = 0; ry <= NUM_NEIGHBORS; ry++)
-        amoeba_rules[rx][ry] = false;
+var rules = conway;
+
+function makeRuleArray(){
+    var ruleArray = new Array();    
+    for(var rx = 0; rx < 2; rx++) {
+        ruleArray[rx] = new Array();
+        for(var ry = 0; ry <= NUM_NEIGHBORS; ry++)
+            ruleArray[rx][ry] = false;
+    }
+    
+    return ruleArray;
 }
 
 
@@ -57,7 +57,6 @@ var GoL = {
         rules = amoeba_rules;
     }
   },
-
 
 
   randomnizeGrid: function() {
