@@ -185,7 +185,9 @@ var GoL = {
         if(rulesChanged)
         {
             rulesChanged = false;
-            this.run();
+            GoL.nextGeneration();
+            postMessage([{ born: GoL.born, dead: GoL.dead }]);
+            return;
         }
       GoL.nextGeneration();
       generations.push({ born: GoL.born, dead: GoL.dead });
