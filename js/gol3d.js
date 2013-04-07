@@ -200,7 +200,7 @@ var GoL3D = {
     for (i = 0; i < pool_size; i++) this.buildCube();
   },
   
-  function makeCubeMaterial(){
+  makeCubeMaterial: function() {
     this.cubeMaterial = new THREE.MeshBasicMaterial({
       shading: THREE.FlatShading,
       map: THREE.ImageUtils.loadTexture("/images/square-outline.png")
