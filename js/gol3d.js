@@ -139,7 +139,8 @@ var GoL3D = {
   },
 
   setRules: function(r) {
-    console.log('past message');
+    console.log('passed message');
+    console.log(r);
     worker.postMessage({ new_rule: r });
   },
 

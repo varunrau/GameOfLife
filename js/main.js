@@ -6,14 +6,12 @@ $(document).ready(function() {
 
 var appendButtons = function() {
     for (var example = 0; example < NUM_EXAMPLES; example++) {
-        $('.example-rules').append('<button class="example-button">' + getButton(example) + '</button>');
+        $('.example-rules').append('<button class="example-button" id="btn' + example + '">' + getButton(example) + '</button>');
     }
-    $(".example-button").click(function() {
-        console.log($(this).parent().index());
+    $(".example-rules button").click(function() {
+        console.log($(this).index());
 
-        console.log($(this).attr('text'));
-        console.log(this.title);
-        GoL3D.setRules(getButton($(this).parent().index()));
+        GoL3D.setRules(getButton($(this).index()));
     });
 };
 
