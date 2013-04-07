@@ -12,6 +12,21 @@ var ALIVE = 11;
 //The maximum number of neighbors a cell can have
 var NUM_NEIGHBORS = 8;
 
+/*
+new Ruleset("Conways Original", Arrays.asList(Arrays.asList(3), Arrays.asList(2, 3))), 
+new Ruleset("Circuit City", Arrays.asList(Arrays.asList(3), Arrays.asList(2, 3, 4))), 
+new Ruleset("Fractal Circuits", Arrays.asList(Arrays.asList(1, 2), Arrays.asList(2, 3, 4, 5))), 
+new Ruleset("Crazy Squares", Arrays.asList(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8), Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7))), 
+new Ruleset("Crystals", Arrays.asList(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7), Arrays.asList(0, 1, 2, 4, 5, 6, 7))), 
+new Ruleset("Round Cells", Arrays.asList(Arrays.asList(5, 6, 7, 8), Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7))), 
+new Ruleset("Square Cells", Arrays.asList(Arrays.asList(6, 7, 8), Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7))), 
+new Ruleset("Slow Burn", Arrays.asList(Arrays.asList(3, 4), Arrays.asList(4, 5, 6))), 
+new Ruleset("Slow Burn 2", Arrays.asList(Arrays.asList(3, 4, 7, 8), Arrays.asList(0, 4, 5, 7, 8))), 
+new Ruleset("Coral", Arrays.asList(Arrays.asList(3), Arrays.asList(2, 3, 4, 5, 6))), 
+new Ruleset("Amoeba", Arrays.asList(Arrays.asList(3), Arrays.asList(4, 5, 6, 7, 8))), 
+new Ruleset("Diamonds", Arrays.asList(Arrays.asList(3, 4, 5, 6, 7, 8), Arrays.asList(4, 5, 6, 7))), 
+*/
+
 var conway = makeRuleArray();
 conway[0][3] = true;
 conway[1][2] = true;
