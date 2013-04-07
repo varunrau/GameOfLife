@@ -78,8 +78,8 @@ var GoL3D = {
 
     var size = this.size / 2;
 
-    cube.position.x = (coords[0] - size) * 20 + 10;
-    cube.position.y = (coords[1] - size) * 20 + 10;
+    cube.position.x = (coords[0] - size) * CUBE_SIZE + 10;
+    cube.position.y = (coords[1] - size) * CUBE_SIZE + 10;
     cube.position.z = 10;
 
     cube.visible  = true;
@@ -187,7 +187,7 @@ var GoL3D = {
   initializeCubes: function(rows, columns) {
     var i;
 
-    this.cubeGeo = new THREE.CubeGeometry(20,20,20);
+    this.cubeGeo = new THREE.CubeGeometry(CUBE_SIZE,CUBE_SIZE,CUBE_SIZE);
 
     // Build a pool of objects to avoid creating/deleting
     // them later, over and over.
