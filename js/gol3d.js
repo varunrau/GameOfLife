@@ -216,8 +216,8 @@ var GoL3D = {
       map: THREE.ImageUtils.loadTexture("/images/square-outline.png")
     });
 
-    //this.cubeMaterial.color.setHSV(.7, 1.0, 1.0);
-    //this.cubeMaterial.ambient = this.cubeMaterial.color
+    this.cubeMaterial.color.setHSV(.7, 1.0, 1.0);
+    this.cubeMaterial.ambient = this.cubeMaterial.color;
     
     return cubeMaterial;
   },
