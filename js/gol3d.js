@@ -94,6 +94,7 @@ var GoL3D = {
     var cube = this.liveCubes[coords[0]][coords[1]];
 
     cube.visible = false;
+    cube.age = 0;
 
     this.liveCubes[coords[0]][coords[1]] = undefined;
     this.cubesPool.push(cube);
