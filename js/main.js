@@ -1,11 +1,11 @@
-var NUM_EXAMPLES = 3;
+var buttons = [ "Conway's Original", "Coral", "Amoeba", "Slow Burn", "Slow Burn 2", "Diamonds" ];
 
 $(document).ready(function() {
     appendButtons();
 });
 
 var appendButtons = function() {
-    for (var example = 0; example < NUM_EXAMPLES; example++) {
+    for (var example = 0; example < buttons.length; example++) {
         $('.example-rules').append('<button class="example-button" id="btn' + example + '">' + getButton(example) + '</button>');
     }
     $(".example-rules button").click(function() {
@@ -15,7 +15,6 @@ var appendButtons = function() {
     });
 };
 
-var buttons = {"Conway's Original", "Coral", "Amoeba", "Slow Burn", "Slow Burn 2", "Diamonds"};
 
 var getButton = function(button) {
     return buttons[button];
