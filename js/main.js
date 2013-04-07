@@ -15,14 +15,8 @@ var appendButtons = function() {
     });
 };
 
+var buttons = {"Conway's Original", "Coral", "Amoeba", "Slow Burn", "Slow Burn 2", "Diamonds"};
+
 var getButton = function(button) {
-    if (button === 0) {
-        return "Conway's Original";
-    } else if (button === 1) {
-        return "Coral";
-    } else if (button == 2) {
-        return "Amoeba";
-    } else {
-        return "Slow Burn";
-    }
+    return buttons[button];
 }
