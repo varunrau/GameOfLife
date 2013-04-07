@@ -104,7 +104,7 @@ var GoL3D = {
     GoL3D.moveCamera();
     GoL3D.render();
 
-    if(liveCubes){
+    if(this.liveCubes){
     for (var x = 0; x < this.size; x++)
       for(var y = 0; y < this.size; y++) {
         cube = liveCubes[x][y];
