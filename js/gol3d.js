@@ -1,5 +1,6 @@
 var worker = null;
 var CUBE_SIZE = 40;
+var DELAY_TIME = 10;
 
 var GoL3D = {
   init: function() {
@@ -99,6 +100,10 @@ var GoL3D = {
   },
 
   animate: function() {
+    if(Math.random < .01)
+      console.log(GoL3D.nextGenerations.length);
+    
+    
     requestAnimationFrame(GoL3D.animate)
 
     GoL3D.moveCamera();
@@ -168,7 +173,7 @@ var GoL3D = {
   },
 
   cubesLoop: function() {
-    setTimeout(GoL3D.cubesLoop, 10);
+    setTimeout(GoL3D.cubesLoop, DELAY_TIME);
 
     var gen = GoL3D.nextGenerations.shift();
     var i, l;
