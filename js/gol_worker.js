@@ -180,7 +180,7 @@ var GoL = {
   // that way the syncrhonization time between this worker,
   // and the main js is reduced to a 1/10th of the time.
   run: function() {
-    setTimeout(GoL.run, 2000);
+    setTimeout(GoL.run, 200);
 
     var generations = [];
 
