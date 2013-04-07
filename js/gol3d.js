@@ -214,7 +214,7 @@ var GoL3D = {
   },
 
   buildCube: function() {
-    var cube = new THREE.Mesh(this.cubeGeo, makeCubeMaterial());
+    var cube = new THREE.Mesh(this.cubeGeo, this.makeCubeMaterial());
 
     cube.age = 0;
 
