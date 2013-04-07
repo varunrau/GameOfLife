@@ -149,6 +149,9 @@ var GoL = {
     else if(r === "Coral"){
         rules = coralRules;
     }
+    else if(r === "Diamonds"){
+        rules = diamondsRules;
+    }
   },
 
 
@@ -185,7 +188,7 @@ var GoL = {
         if(rulesChanged)
         {
             rulesChanged = false;
-            postMessage(computeGenerations(5))
+            postMessage(GoL.computeGenerations(5))
         }
       GoL.nextGeneration();
       generations.push({ born: GoL.born, dead: GoL.dead });
