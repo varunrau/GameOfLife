@@ -9,9 +9,11 @@ var appendButtons = function() {
         $('.example-rules').append('<button class="example-button">' + getButton(example) + '</button>');
     }
     $(".example-button").click(function() {
+        console.log($(this).parent().index());
+
         console.log($(this).attr('text'));
         console.log(this.title);
-        GoL3D.setRules(this.title);
+        GoL3D.setRules(getButton($(this).parent().index()));
     });
 };
 

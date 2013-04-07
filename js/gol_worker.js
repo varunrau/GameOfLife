@@ -50,6 +50,7 @@ var GoL = {
   },
 
   setRules: function(r) {
+    console.log('gotmessage');
     if (r === "Amoeba") {
         rules = amoeba_rules;
     }
@@ -158,11 +159,10 @@ var GoL = {
 };
 
 onmessage = function(e) {
-    if (e.data) {
+    if (e.data.size) {
         GoL.init(e.data.size);
     } else {
-        this.setRules(e);
+        this.setRules(e.data.new_rules);
     }
-    GoL.init(e.data.size);
 };
 
