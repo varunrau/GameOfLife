@@ -210,7 +210,7 @@ var GoL3D = {
     this.cubeMaterial.color.setHSV(hue, 1.0, 1.0);
     this.cubeMaterial.ambient = this.cubeMaterial.color
     
-    return cubeMaterial;
+    return this.cubeMaterial;
   },
 
   buildCube: function() {
