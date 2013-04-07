@@ -4,7 +4,7 @@
 // which is the most demanding task for the cpu.
 
 var NUM_GENERATIONS = 30;
-var ALIVE = 10;
+var ALIVE = 11;
 var NUM_NEIGHBORS = 8;
 
 var rules = new Array();
