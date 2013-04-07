@@ -107,7 +107,7 @@ var GoL3D = {
     if(this.liveCubes != undefined){
         for (var x = 0; x < this.size; x++)
             for(var y = 0; y < this.size; y++) {
-                cube = liveCubes[x][y];
+                cube = this.liveCubes[x][y];
                 if(cube) {
                     cube.age++;
                     var hue = (.3*Math.sqrt(cube.age)) % 1.0;
