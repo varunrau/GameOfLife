@@ -178,7 +178,7 @@ var GoL3D = {
   },
 
   initializeCubes: function(rows, columns) {
-    var cube, i;
+    var i;
 
     this.cubeGeo = new THREE.CubeGeometry(20,20,20);
 
