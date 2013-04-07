@@ -104,6 +104,7 @@ var GoL3D = {
     GoL3D.moveCamera();
     GoL3D.render();
     
+    if(liveCubes){
     for (var x = 0; x < this.size; x++)
       for(var y = 0; y < this.size; y++)
       {
@@ -114,6 +115,7 @@ var GoL3D = {
           var hue = (.3*Math.sqrt(cube.age)) % 1.0;
           cube.material.color.setHSV(hue,1.0,1.0);
         }
+      }
       }
   },
 
