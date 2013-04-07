@@ -1,0 +1,71 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+a {
+  cursor: pointer;
+  color: #88b9eB;
+}
+#info_container {
+  padding: 20px;
+  margin: 20px;
+  width: 400px;
+  height: 120px;
+  position: absolute;
+  z-index: 11;
+}
+#info_container p {
+  float: left;
+  margin: 5px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  color: white;
+}
+.read_more p {
+  padding: 10px 0;
+}
+#info_container .foreground {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10;
+  padding: 10px;
+}
+#info_container .background {
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 9;
+  background: black;
+  opacity: 0.8;
+  left: 20px;
+}
+.name {
+  cursor: none;
+  margin-right: 15px;
+  font-size: 55px;
+  color: #5Baaee;
+  font-family: 'Electrolize', sans-serif;
+}
+.description {
+  color: #AE0000;
+  font-size: 17px;
+  padding: 5px;
+  width: 350px;
+  color: white;
+}
+.link {
+  width: 35px;
+  height: 35px;
+  float: left;
+  margin: 5px;
+  margin-top: 10px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.linkedin { background-image: url(/images/linkedin.png); }
+.github   { background-image: url(/images/github.png);   }
+.twitter  { background-image: url(/images/twitter.png);  }
+.facebook { background-image: url(/images/facebook.png); }
+.gmail    { background-image: url(/images/gmail.png);    }
+#fork_me  { display: none; };
