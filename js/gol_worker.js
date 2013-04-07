@@ -18,8 +18,7 @@ new Ruleset("Circuit City", Arrays.asList(Arrays.asList(3), Arrays.asList(2, 3, 
 new Ruleset("Fractal Circuits", Arrays.asList(Arrays.asList(1, 2), Arrays.asList(2, 3, 4, 5))), 
 new Ruleset("Crazy Squares", Arrays.asList(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8), Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7))), 
 new Ruleset("Crystals", Arrays.asList(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7), Arrays.asList(0, 1, 2, 4, 5, 6, 7))), 
-new Ruleset("Round Cells", Arrays.asList(Arrays.asList(5, 6, 7, 8), Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7))), 
-new Ruleset("Square Cells", Arrays.asList(Arrays.asList(6, 7, 8), Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7))), 
+new Ruleset("Round Cells", Arrays.asList(Arrays.asList(5, 6, 7, 8), Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7))),
 new Ruleset("Slow Burn", Arrays.asList(Arrays.asList(3, 4), Arrays.asList(4, 5, 6))), 
 new Ruleset("Slow Burn 2", Arrays.asList(Arrays.asList(3, 4, 7, 8), Arrays.asList(0, 4, 5, 7, 8))), 
 new Ruleset("Coral", Arrays.asList(Arrays.asList(3), Arrays.asList(2, 3, 4, 5, 6))), 
@@ -46,33 +45,24 @@ fractalCircuits[1][3] = true;
 fractalCircuits[1][4] = true;
 fractalCircuits[1][5] = true;
 
-var crazySquaresRules = makeRuleArray();
-crazySquaresRules[0][1] = true;
-crazySquaresRules[0][2] = true;
-crazySquaresRules[0][3] = true;
-crazySquaresRules[0][4] = true;
-crazySquaresRules[0][5] = true;
-crazySquaresRules[0][6] = true;
-crazySquaresRules[0][7] = true;
-crazySquaresRules[0][8] = true;
-crazySquaresRules[1][0] = true;
-crazySquaresRules[1][1] = true;
-crazySquaresRules[1][2] = true;
-crazySquaresRules[1][3] = true;
-crazySquaresRules[1][4] = true;
-crazySquaresRules[1][5] = true;
-crazySquaresRules[1][6] = true;
-crazySquaresRules[1][7] = true;
+var crazySquaresRules = makeRuleArray(true);
+crazySquaresRules[0][0] = false;
+crazySquaresRules[1][8] = false;
 
-var amoebaRules = makeRuleArray();
-amoebaRules[0][3] = true;
-amoebaRules[1][4] = true;
-amoebaRules[1][5] = true;
-amoebaRules[1][6] = true;
-amoebaRules[1][7] = true;
-amoebaRules[1][8] = true;
+var crystalsRules = makeRuleArray(true);
+crystalRules[0][8] = false;
+crystalRules[1][3] = false;
+crystalRules[1][8] = false;
 
-var coralRules = makeRuleArray();
+var roundCellRules = makeRuleArray(true);
+roundCellRules[0][0] = false;
+roundCellRules[0][1] = false;
+roundCellRules[0][2] = false;
+roundCellRules[0][3] = false;
+roundCellRules[0][4] = false;
+roundCellRules[1][8] = false;
+
+var coralRules = makeRuleArray(false);
 coralRules[0][3] = true;
 coralRules[1][2] = true;
 coralRules[1][3] = true;
@@ -80,15 +70,33 @@ coralRules[1][4] = true;
 coralRules[1][5] = true;
 coralRules[1][6] = true;
 
+var amoebaRules = makeRuleArray(false);
+amoebaRules[0][3] = true;
+amoebaRules[1][4] = true;
+amoebaRules[1][5] = true;
+amoebaRules[1][6] = true;
+amoebaRules[1][7] = true;
+amoebaRules[1][8] = true;
+
+var diamondsRules = makeRuleArray(true);
+diamondsRules[0][0] = false;
+diamondsRules[0][1] = false;
+diamondsRules[0][2] = false;
+diamondsRules[1][0] = false;
+diamondsRules[1][1] = false;
+diamondsRules[1][2] = false;
+diamondsRules[1][3] = false;
+diamondsRules[1][8] = false;
+
 //make conway's rules the default when you start.
 var rules = conwayRules;
 
-function makeRuleArray(){
-    var ruleArray = new Array();    
+function makeRuleArray(var def){
+    var ruleArray = new Array();
     for(var rx = 0; rx < 2; rx++) {
         ruleArray[rx] = new Array();
         for(var ry = 0; ry <= NUM_NEIGHBORS; ry++)
-            ruleArray[rx][ry] = false;
+            ruleArray[rx][ry] = def;
     }
     
     return ruleArray;
