@@ -5,7 +5,7 @@ var GoL3D = {
   init: function() {
     this.size = 100;
     this.liveCubes = this.matrix(this.size, this.size);
-    
+
     this.nextGenerations = [];
 
     // Initialize the worker first, so it starts calulating
@@ -100,23 +100,21 @@ var GoL3D = {
 
   animate: function() {
     requestAnimationFrame(GoL3D.animate)
-    
+
     GoL3D.moveCamera();
     GoL3D.render();
-    
+
     if(liveCubes){
     for (var x = 0; x < this.size; x++)
-      for(var y = 0; y < this.size; y++)
-      {
+      for(var y = 0; y < this.size; y++) {
         cube = liveCubes[x][y];
-        if(cube)
-        {
+        if(cube) {
           cube.age++;
           var hue = (.3*Math.sqrt(cube.age)) % 1.0;
           cube.material.color.setHSV(hue,1.0,1.0);
         }
       }
-      }
+    }
   },
 
   transition: function(x,y,z) {
@@ -212,7 +210,7 @@ var GoL3D = {
 
     for (i = 0; i < pool_size; i++) this.buildCube();
   },
-  
+
   makeCubeMaterial: function() {
     var cubeMaterial = new THREE.MeshBasicMaterial({
       shading: THREE.FlatShading,
@@ -221,7 +219,7 @@ var GoL3D = {
 
     cubeMaterial.color.setHSV(.7, 1.0, 1.0);
     cubeMaterial.ambient = cubeMaterial.color;
-    
+
     return cubeMaterial;
   },
 
