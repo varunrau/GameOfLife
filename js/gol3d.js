@@ -73,10 +73,6 @@ var GoL3D = {
   drawCell: function(coords) {
     var cube = this.getCube();
 
-    cube.age++;
-    var hue = (.3*Math.sqrt(cube.age)) % 1.0;
-    cube.material.color.setHSV(hue,1.0,1.0);
-
     var size = this.size / 2;
 
     cube.position.x = (coords[0] - size) * CUBE_SIZE + 10;
@@ -102,8 +98,21 @@ var GoL3D = {
 
   animate: function() {
     requestAnimationFrame(GoL3D.animate)
+    
     GoL3D.moveCamera();
     GoL3D.render();
+    
+    for (var x = 0; x < this.size; x++)
+      for(var y = 0; y < this.size; y++)
+      {
+        cube = liveCubes[x][y];
+        if(cube)
+        {
+          cube.age++;
+          var hue = (.3*Math.sqrt(cube.age)) % 1.0;
+          cube.material.color.setHSV(hue,1.0,1.0);
+        }
+      }
   },
 
   transition: function(x,y,z) {
@@ -202,16 +211,15 @@ var GoL3D = {
   },
   
   makeCubeMaterial: function() {
-    this.cubeMaterial = new THREE.MeshBasicMaterial({
+    var cubeMaterial = new THREE.MeshBasicMaterial({
       shading: THREE.FlatShading,
       map: THREE.ImageUtils.loadTexture("/images/square-outline.png")
     });
 
-    var hue = .7;
-    this.cubeMaterial.color.setHSV(hue, 1.0, 1.0);
-    this.cubeMaterial.ambient = this.cubeMaterial.color
+    //this.cubeMaterial.color.setHSV(.7, 1.0, 1.0);
+    //this.cubeMaterial.ambient = this.cubeMaterial.color
     
-    return this.cubeMaterial;
+    return cubeMaterial;
   },
 
   buildCube: function() {
