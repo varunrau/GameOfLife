@@ -5,6 +5,7 @@ $(document).ready(function() {
 });
 
 var appendButtons = function() {
+    console.log(buttons.length);
     for (var example = 0; example < buttons.length; example++) {
         $('.example-rules').append('<button class="example-button" id="btn' + example + '">' + getButton(example) + '</button>');
     }
