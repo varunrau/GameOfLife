@@ -1,9 +1,11 @@
-var worker = null
+var worker = null;
 var CUBE_SIZE = 40;
 
 var GoL3D = {
   init: function() {
     this.size = 100;
+    this.liveCubes = this.matrix(this.size, this.size);
+    
     this.nextGenerations = [];
 
     // Initialize the worker first, so it starts calulating
@@ -202,7 +204,6 @@ var GoL3D = {
     // Build a pool of objects to avoid creating/deleting
     // them later, over and over.
     this.cubesPool = [];
-    this.liveCubes = this.matrix(this.size, this.size);
 
     // This is the size used to generate the initial random position
     var pool_size = this.size * 35;
