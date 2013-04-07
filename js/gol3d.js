@@ -189,15 +189,6 @@ var GoL3D = {
 
     this.cubeGeo = new THREE.CubeGeometry(20,20,20);
 
-    this.cubeMaterial = new THREE.MeshBasicMaterial({
-      shading: THREE.FlatShading,
-      map: THREE.ImageUtils.loadTexture("/images/square-outline.png")
-    });
-
-    var hue = .7;
-    this.cubeMaterial.color.setHSV(hue, 1.0, 1.0);
-    this.cubeMaterial.ambient = this.cubeMaterial.color;
-
     // Build a pool of objects to avoid creating/deleting
     // them later, over and over.
     this.cubesPool = [];
@@ -208,9 +199,22 @@ var GoL3D = {
 
     for (i = 0; i < pool_size; i++) this.buildCube();
   },
+  
+  function makeCubeMaterial(){
+    this.cubeMaterial = new THREE.MeshBasicMaterial({
+      shading: THREE.FlatShading,
+      map: THREE.ImageUtils.loadTexture("/images/square-outline.png")
+    });
+
+    var hue = .7;
+    this.cubeMaterial.color.setHSV(hue, 1.0, 1.0);
+    this.cubeMaterial.ambient = this.cubeMaterial.color
+    
+    return cubeMaterial;
+  },
 
   buildCube: function() {
-    var cube = new THREE.Mesh(this.cubeGeo, this.cubeMaterial);
+    var cube = new THREE.Mesh(this.cubeGeo, makeCubeMaterial());
 
     cube.age = 0;
 
