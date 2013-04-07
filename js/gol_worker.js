@@ -13,17 +13,17 @@ var ALIVE = 11;
 var NUM_NEIGHBORS = 8;
 
 /*
-new Ruleset("Conways Original", Arrays.asList(Arrays.asList(3), Arrays.asList(2, 3))), 
-new Ruleset("Circuit City", Arrays.asList(Arrays.asList(3), Arrays.asList(2, 3, 4))), 
-new Ruleset("Fractal Circuits", Arrays.asList(Arrays.asList(1, 2), Arrays.asList(2, 3, 4, 5))), 
-new Ruleset("Crazy Squares", Arrays.asList(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8), Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7))), 
-new Ruleset("Crystals", Arrays.asList(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7), Arrays.asList(0, 1, 2, 4, 5, 6, 7))), 
+new Ruleset("Conways Original", Arrays.asList(Arrays.asList(3), Arrays.asList(2, 3))),
+new Ruleset("Circuit City", Arrays.asList(Arrays.asList(3), Arrays.asList(2, 3, 4))),
+new Ruleset("Fractal Circuits", Arrays.asList(Arrays.asList(1, 2), Arrays.asList(2, 3, 4, 5))),
+new Ruleset("Crazy Squares", Arrays.asList(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8), Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7))),
+new Ruleset("Crystals", Arrays.asList(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7), Arrays.asList(0, 1, 2, 4, 5, 6, 7))),
 new Ruleset("Round Cells", Arrays.asList(Arrays.asList(5, 6, 7, 8), Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7))),
-new Ruleset("Slow Burn", Arrays.asList(Arrays.asList(3, 4), Arrays.asList(4, 5, 6))), 
-new Ruleset("Slow Burn 2", Arrays.asList(Arrays.asList(3, 4, 7, 8), Arrays.asList(0, 4, 5, 7, 8))), 
-new Ruleset("Coral", Arrays.asList(Arrays.asList(3), Arrays.asList(2, 3, 4, 5, 6))), 
-new Ruleset("Amoeba", Arrays.asList(Arrays.asList(3), Arrays.asList(4, 5, 6, 7, 8))), 
-new Ruleset("Diamonds", Arrays.asList(Arrays.asList(3, 4, 5, 6, 7, 8), Arrays.asList(4, 5, 6, 7))), 
+new Ruleset("Slow Burn", Arrays.asList(Arrays.asList(3, 4), Arrays.asList(4, 5, 6))),
+new Ruleset("Slow Burn 2", Arrays.asList(Arrays.asList(3, 4, 7, 8), Arrays.asList(0, 4, 5, 7, 8))),
+new Ruleset("Coral", Arrays.asList(Arrays.asList(3), Arrays.asList(2, 3, 4, 5, 6))),
+new Ruleset("Amoeba", Arrays.asList(Arrays.asList(3), Arrays.asList(4, 5, 6, 7, 8))),
+new Ruleset("Diamonds", Arrays.asList(Arrays.asList(3, 4, 5, 6, 7, 8), Arrays.asList(4, 5, 6, 7))),
 */
 
 var conwayRules = makeRuleArray();
@@ -50,9 +50,9 @@ crazySquaresRules[0][0] = false;
 crazySquaresRules[1][8] = false;
 
 var crystalsRules = makeRuleArray(true);
-crystalRules[0][8] = false;
-crystalRules[1][3] = false;
-crystalRules[1][8] = false;
+crystalsRules[0][8] = false;
+crystalsRules[1][3] = false;
+crystalsRules[1][8] = false;
 
 var roundCellRules = makeRuleArray(true);
 roundCellRules[0][0] = false;
@@ -91,14 +91,14 @@ diamondsRules[1][8] = false;
 //make conway's rules the default when you start.
 var rules = conwayRules;
 
-function makeRuleArray(var def){
+function makeRuleArray(def){
     var ruleArray = new Array();
     for(var rx = 0; rx < 2; rx++) {
         ruleArray[rx] = new Array();
         for(var ry = 0; ry <= NUM_NEIGHBORS; ry++)
             ruleArray[rx][ry] = def;
     }
-    
+
     return ruleArray;
 }
 
