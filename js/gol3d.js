@@ -104,17 +104,19 @@ var GoL3D = {
     GoL3D.moveCamera();
     GoL3D.render();
 
-    if(this.liveCubes){
-        for (var x = 0; x < this.size; x++)
-            for(var y = 0; y < this.size; y++) {
+    if(GoL3D.liveCubes) {
+        for (var x = 0; x < GoL3D.size; x++) {
+            for(var y = 0; y < GoL3D.size; y++) {
                 var cube = this.liveCubes[x][y];
-                if(cube) {
+                console.log(cube);
+                if (cube) {
                     console.log(cube.age);
                     cube.age++;
                     var hue = (.1*Math.sqrt(cube.age)) % 1.0;
                     cube.material.color.setHSV(hue,1.0,1.0);
                 }
             }
+        }
     }
   },
 
