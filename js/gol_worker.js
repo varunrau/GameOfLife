@@ -5,12 +5,13 @@
 
 var NUM_GENERATIONS = 30;
 var ALIVE = 10;
+var NUM_NEIGHBORS = 8;
 
 var rules = new Array();
 
 for(var rx = 0; rx < 2; rx++) {
     rules[rx] = new Array();
-    for(var ry = 0; ry < 9; ry++)
+    for(var ry = 0; ry <= NUM_NEIGHBORS; ry++)
         rules[rx][ry] = false;
 }
 
@@ -22,7 +23,7 @@ var amoeba_rules = new Array();
 
 for(var rx = 0; rx < 2; rx++) {
     amoeba_rules[rx] = new Array();
-    for(var ry = 0; ry < 9; ry++)
+    for(var ry = 0; ry <= NUM_NEIGHBORS; ry++)
         amoeba_rules[rx][ry] = false;
 }
 
@@ -52,6 +53,7 @@ var GoL = {
   },
 
   setRules: function(r) {
+    console.log('gotmessage');
     if (r === "Amoeba") {
         rules = amoeba_rules;
     }
@@ -144,7 +146,7 @@ var GoL = {
       [row + 1, column + 1]
     ];
 
-    for (j = 0; j < 8; j++)
+    for (j = 0; j < NUM_NEIGHBORS; j++)
       if (coords[j][0] >= 0 && coords[j][0] < GoL.size && coords[j][1] >= 0 && coords[j][1] < GoL.size) {
         x = coords[j][0]; y = coords[j][1];
 
@@ -162,7 +164,7 @@ onmessage = function(e) {
     if (e.data.size) {
         GoL.init(e.data.size);
     } else {
-        GoL.setRules(e.data.new_rule);
+        this.setRules(e.data.new_rule);
     }
 };
 
