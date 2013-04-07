@@ -1,3 +1,5 @@
+var worker = null
+
 var GoL3D = {
   init: function() {
     this.size = 200;
@@ -127,13 +129,17 @@ var GoL3D = {
   },
 
   initializeWorker: function() {
-    var worker = new Worker("/js/gol_worker.js");
+    worker = new Worker("/js/gol_worker.js");
 
     worker.onmessage = function(e) {
       GoL3D.nextGenerations = GoL3D.nextGenerations.concat(e.data);
     };
 
     worker.postMessage({ size: GoL3D.size })
+  },
+
+  setRules: function(r) {
+    worker.postMessage({ new_rules: r });
   },
 
   cubesLoop: function() {
@@ -180,7 +186,7 @@ var GoL3D = {
       map: THREE.ImageUtils.loadTexture("/images/square-outline.png")
     });
 
-    this.cubeMaterial.color.setHSV(0.6, 0.4, 1.0);
+    this.cubeMaterial.color.setHSV(0.1, 0.4, 1.0);
     this.cubeMaterial.ambient = this.cubeMaterial.color;
 
     // Build a pool of objects to avoid creating/deleting

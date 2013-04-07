@@ -2,6 +2,29 @@
 // The idea is that these are calculated in the background and then cached,
 // so the main GoL widget concentrates only on rendering the cells,
 // which is the most demanding task for the cpu.
+
+
+var rules = new Array();
+
+for(var rx = 0; rx < 2; rx++) {
+    rules[rx] = new Array();
+    for(var ry = 0; ry < 9; ry++)
+        rules[rx][ry] = false;
+}
+
+rules[0][3] = true;
+rules[1][2] = true;
+rules[1][3] = true;
+
+var amoeba_rules = new Array();
+
+for(var rx = 0; rx < 2; rx++) {
+    amoeba_rules[rx] = new Array();
+    for(var ry = 0; ry < 9; ry++)
+        amoeba_rules[rx][ry] = false;
+}
+
+
 var GoL = {
   init: function(size) {
     GoL.size = size;
@@ -25,6 +48,14 @@ var GoL = {
 
     GoL.grid = grid;
   },
+
+  setRules: function(r) {
+    if (r === "Amoeba") {
+        rules = amoeba_rules;
+    }
+  },
+
+
 
   randomnizeGrid: function() {
     var floor  = Math.floor;
@@ -55,7 +86,8 @@ var GoL = {
 
     var generations = [], i;
 
-    for (i = 0; i < 30; i++) {
+    var NUM_GENERATIONS = 30;
+    for (i = 0; i < NUM_GENERATIONS; i++) {
       GoL.nextGeneration();
       generations.push({ born: GoL.born, dead: GoL.dead });
     }
@@ -79,21 +111,6 @@ var GoL = {
       candidate = GoL.candidates[i]; x = candidate[0]; y = candidate[1];
       neighbours = GoL.grid[x][y] % 10;
 
-    var rules = new Array();
-
-    for(var rx = 0; rx < 2; rx++) {
-        rules[rx] = new Array();
-        for(var ry = 0; ry < 9; ry++)
-            rules[rx][ry] = false;
-    }
-
-    rules[0][3] = true;
-
-    rules[1][2] = true;
-    rules[1][3] = true;
-
-
-
       if (GoL.grid[x][y] >= 10)
         if (rules[1][neighbours] === false){//neighbours < 2 || neighbours > 3) {
           GoL.dead.push(candidate);
@@ -103,7 +120,7 @@ var GoL = {
           GoL.alive.push(candidate)
         }
       else
-        if (GoL.grid[x][y] == 3) {
+        if (rules[0][GoL.grid[x][y]] === true){//GoL.grid[x][y] == 3) {
           GoL.grid[x][y] = 10;
           GoL.born.push(candidate);
           GoL.alive.push(candidate)
@@ -140,4 +157,12 @@ var GoL = {
   }
 };
 
-onmessage = function(e) { GoL.init(e.data.size); };
+onmessage = function(e) {
+    if (e.data) {
+        GoL.init(e.data.size);
+    } else {
+        this.setRules(e);
+    }
+    GoL.init(e.data.size);
+};
+
