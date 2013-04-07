@@ -3,7 +3,7 @@ var CUBE_SIZE = 40;
 
 var GoL3D = {
   init: function() {
-    this.size = 200;
+    this.size = 100;
     this.nextGenerations = [];
 
     // Initialize the worker first, so it starts calulating
