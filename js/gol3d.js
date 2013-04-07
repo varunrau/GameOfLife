@@ -73,7 +73,7 @@ var GoL3D = {
     var cube = this.getCube();
 
     cube.age++;
-    var hue = (.1*Math.sqrt(cube.age)) % 1.0;
+    var hue = (.3*Math.sqrt(cube.age)) % 1.0;
     console.log(hue)
     cube.material.color.setHSV(hue,1.0,1.0);
 
