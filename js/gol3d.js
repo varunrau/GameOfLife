@@ -107,7 +107,7 @@ var GoL3D = {
     if(GoL3D.liveCubes) {
         for (var x = 0; x < GoL3D.size; x++) {
             for(var y = 0; y < GoL3D.size; y++) {
-                var cube = this.liveCubes[x][y];
+                var cube = GoL3D.liveCubes[x][y];
                 console.log(cube);
                 if (cube) {
                     console.log(cube.age);
@@ -118,6 +118,9 @@ var GoL3D = {
             }
         }
     }
+
+    GoL3D.moveCamera();
+    GoL3D.render();
   },
 
   transition: function(x,y,z) {
