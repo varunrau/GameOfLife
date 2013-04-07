@@ -163,8 +163,8 @@ var GoL3D = {
   },
 
   setRules: function(r) {
-    console.log('passed message');
     console.log(r);
+    GoL3D.nextGenerations = [];
     worker.postMessage({ new_rule: r });
   },
 
