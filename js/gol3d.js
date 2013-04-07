@@ -79,7 +79,7 @@ var GoL3D = {
 
     cube.position.x = (coords[0] - size) * CUBE_SIZE + 10;
     cube.position.y = (coords[1] - size) * CUBE_SIZE + 10;
-    cube.position.z = 10 + 2 * cube.age;
+    cube.position.z = 10;
 
     cube.visible  = true;
 
@@ -112,6 +112,7 @@ var GoL3D = {
                     cube.age++;
                     var hue = (.1*Math.sqrt(cube.age)) % 1.0;
                     cube.material.color.setHSV(hue,1.0,1.0);
+                    cube.position.z = age;
                 }
             }
         }
