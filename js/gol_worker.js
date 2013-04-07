@@ -194,8 +194,7 @@ var GoL = {
     postMessage(generations);
   },
   
-  computeGenerations(numGenerations)
-  {
+  computeGenerations: function(numGenerations) {
     var generations = [];
     for (i = 0; i < NUM_GENERATIONS; i++) {
       GoL.nextGeneration();
