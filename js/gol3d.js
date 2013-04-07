@@ -107,12 +107,6 @@ var GoL3D = {
     if(this.liveCubes){
         for (var x = 0; x < this.size; x++)
             for(var y = 0; y < this.size; y++) {
-<<<<<<< HEAD
-                console.log(this.liveCubes)
-                cube = this.liveCubes[x][y];
-=======
-                var cube = this.liveCubes[x][y];
->>>>>>> ccea51a5c3e4c2f509a8b3c5d0f8bf37ba746fd6
                 if(cube) {
                     console.log(cube.age);
                     cube.age++;
