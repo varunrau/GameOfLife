@@ -91,6 +91,8 @@ diamondsRules[1][8] = false;
 //make conway's rules the default when you start.
 var rules = conwayRules;
 
+var rulesChanged = false;
+
 function makeRuleArray(def){
     var ruleArray = new Array();
     for(var rx = 0; rx < 2; rx++) {
@@ -180,6 +182,11 @@ var GoL = {
     var generations = [], i;
 
     for (i = 0; i < NUM_GENERATIONS; i++) {
+        if(rulesChanged)
+        {
+            rulesChanged = false;
+            this.run();
+        }
       GoL.nextGeneration();
       generations.push({ born: GoL.born, dead: GoL.dead });
     }
@@ -254,6 +261,7 @@ onmessage = function(e) {
         GoL.init(e.data.size);
     } else {
         GoL.setRules(e.data.new_rule);
+        rulesChanged = true;
     }
 };
 
