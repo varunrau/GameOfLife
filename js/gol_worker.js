@@ -179,15 +179,13 @@ var GoL = {
   run: function() {
     setTimeout(GoL.run, 2000);
 
-    var generations = [], i;
+    var generations = [];
 
     for (i = 0; i < NUM_GENERATIONS; i++) {
         if(rulesChanged)
         {
             rulesChanged = false;
-            GoL.nextGeneration();
-            postMessage([{ born: GoL.born, dead: GoL.dead }]);
-            return;
+            postMessage(computeGenerations(5))
         }
       GoL.nextGeneration();
       generations.push({ born: GoL.born, dead: GoL.dead });
@@ -195,6 +193,17 @@ var GoL = {
 
     postMessage(generations);
   },
+  
+  computeGenerations(numGenerations)
+  {
+    var generations = [];
+    for (i = 0; i < NUM_GENERATIONS; i++) {
+      GoL.nextGeneration();
+      generations.push({ born: GoL.born, dead: GoL.dead });
+    }
+    
+    return generations;
+  }
 
   nextGeneration: function() {
     var i, x, y, neighbours, candidate;
