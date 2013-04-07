@@ -104,15 +104,19 @@ var GoL3D = {
     GoL3D.moveCamera();
     GoL3D.render();
 
-    if(this.liveCubes != undefined){
+    if(this.liveCubes){
         for (var x = 0; x < this.size; x++)
             for(var y = 0; y < this.size; y++) {
+<<<<<<< HEAD
                 console.log(this.liveCubes)
                 cube = this.liveCubes[x][y];
+=======
+                var cube = this.liveCubes[x][y];
+>>>>>>> ccea51a5c3e4c2f509a8b3c5d0f8bf37ba746fd6
                 if(cube) {
                     console.log(cube.age);
                     cube.age++;
-                    var hue = (.3*Math.sqrt(cube.age)) % 1.0;
+                    var hue = (.1*Math.sqrt(cube.age)) % 1.0;
                     cube.material.color.setHSV(hue,1.0,1.0);
                 }
             }
@@ -126,7 +130,8 @@ var GoL3D = {
   moveCamera: function() {
     var diff, tr = this.transitions[0];
 
-    if (!tr) return;
+    if (!tr)
+      return;
 
     $.each(["x","y","z"], function(_,axis) {
       diff = GoL3D["camera_" + axis] - tr[axis]
