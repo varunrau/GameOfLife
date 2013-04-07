@@ -3,8 +3,13 @@
 // so the main GoL widget concentrates only on rendering the cells,
 // which is the most demanding task for the cpu.
 
+//The number of generations to compute as a batch before displaying them
 var NUM_GENERATIONS = 30;
+
+//An arbitrary constant! Must be >8 ?
 var ALIVE = 11;
+
+//The maximum number of neighbors a cell can have
 var NUM_NEIGHBORS = 8;
 
 var conway = makeRuleArray();
