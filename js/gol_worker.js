@@ -185,26 +185,11 @@ var GoL = {
     var generations = [];
 
     for (i = 0; i < NUM_GENERATIONS; i++) {
-        /*if(rulesChanged)
-        {
-            rulesChanged = false;
-            postMessage(GoL.computeGenerations(5))
-        }*/
       GoL.nextGeneration();
       generations.push({ born: GoL.born, dead: GoL.dead });
     }
 
     postMessage(generations);
-  },
-  
-  computeGenerations: function(numGenerations) {
-    var generations = [];
-    for (i = 0; i < NUM_GENERATIONS; i++) {
-      GoL.nextGeneration();
-      generations.push({ born: GoL.born, dead: GoL.dead });
-    }
-    
-    return generations;
   },
 
   nextGeneration: function() {
