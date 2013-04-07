@@ -72,6 +72,15 @@ amoebaRules[1][6] = true;
 amoebaRules[1][7] = true;
 amoebaRules[1][8] = true;
 
+var coralRules = makeRuleArray();
+coralRules[0][3] = true;
+coralRules[1][2] = true;
+coralRules[1][3] = true;
+coralRules[1][4] = true;
+coralRules[1][5] = true;
+coralRules[1][6] = true;
+
+//make conway's rules the default when you start.
 var rules = conwayRules;
 
 function makeRuleArray(){
@@ -126,6 +135,9 @@ var GoL = {
     }
     else if(r === "Circuit City"){
         rules = circuitCityRules;
+    }
+    else if(r === "Coral"){
+        rules = coralRules;
     }
   },
 
