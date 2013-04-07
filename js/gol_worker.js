@@ -3,6 +3,7 @@
 // so the main GoL widget concentrates only on rendering the cells,
 // which is the most demanding task for the cpu.
 
+var NUM_GENERATIONS = 30;
 
 var rules = new Array();
 
@@ -87,7 +88,6 @@ var GoL = {
 
     var generations = [], i;
 
-    var NUM_GENERATIONS = 30;
     for (i = 0; i < NUM_GENERATIONS; i++) {
       GoL.nextGeneration();
       generations.push({ born: GoL.born, dead: GoL.dead });
