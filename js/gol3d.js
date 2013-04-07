@@ -79,7 +79,7 @@ var GoL3D = {
 
     cube.position.x = (coords[0] - size) * CUBE_SIZE + 10;
     cube.position.y = (coords[1] - size) * CUBE_SIZE + 10;
-    cube.position.z = cube.age;
+    cube.position.z = 10 + 2 * cube.age;
 
     cube.visible  = true;
 
