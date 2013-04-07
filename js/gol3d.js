@@ -71,11 +71,12 @@ var GoL3D = {
   // Also store it in the liveCubes matrix.
   drawCell: function(coords) {
     var cube = this.getCube();
-    
+
     cube.age++;
-    hue = 20*Math.sqrt(cube.age);
+    var hue = (.1*Math.sqrt(cube.age)) % 1.0;
+    console.log(hue)
     cube.material.color.setHSV(hue,1.0,1.0);
-    
+
     var size = this.size / 2;
 
     cube.position.x = (coords[0] - size) * 20 + 10;
