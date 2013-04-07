@@ -202,7 +202,7 @@ var GoL = {
     }
     
     return generations;
-  }
+  },
 
   nextGeneration: function() {
     var i, x, y, neighbours, candidate;
