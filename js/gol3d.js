@@ -140,7 +140,7 @@ var GoL3D = {
 
   setRules: function(r) {
     console.log('past message');
-    worker.postMessage({ new_rules: r });
+    worker.postMessage({ new_rule: r });
   },
 
   cubesLoop: function() {

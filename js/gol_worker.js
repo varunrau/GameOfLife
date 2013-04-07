@@ -162,7 +162,7 @@ onmessage = function(e) {
     if (e.data.size) {
         GoL.init(e.data.size);
     } else {
-        this.setRules(e.data.new_rules);
+        this.setRules(e.data.new_rule);
     }
 };
 
