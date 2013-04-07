@@ -63,9 +63,24 @@ a {
   background-repeat: no-repeat;
   cursor: pointer;
 }
-.linkedin { background-image: url(/images/linkedin.png); }
-.github   { background-image: url(/images/github.png);   }
-.twitter  { background-image: url(/images/twitter.png);  }
-.facebook { background-image: url(/images/facebook.png); }
-.gmail    { background-image: url(/images/gmail.png);    }
-#fork_me  { display: none; };
+
+.example-button {
+    -moz-box-shadow:inset 0px 1px 0px 0px #0e80eb;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #0e80eb;
+    box-shadow:inset 0px 1px 0px 0px #0e80eb;
+    background-color:#79bbff;
+    border:1px solid #84bbf3;
+    display:inline-block;
+    color:#ffffff;
+    font-family:Verdana;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:1px 0px 0px #0670cc;
+}.example-button:hover {
+    background-color:#378de5;
+}.example-button:active {
+    position:relative;
+    top:1px;
+}
