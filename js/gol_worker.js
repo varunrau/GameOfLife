@@ -32,6 +32,38 @@ conwayRules[0][3] = true;
 conwayRules[1][2] = true;
 conwayRules[1][3] = true;
 
+var circuitCityRules = makeRuleArray();
+circuitCityRules[0][3] = true;
+circuitCityRules[1][2] = true;
+circuitCityRules[1][3] = true;
+circuitCityRules[1][4] = true;
+
+var fractalCircuits = makeRuleArray();
+fractalCircuits[0][1] = true;
+fractalCircuits[0][2] = true;
+fractalCircuits[1][2] = true;
+fractalCircuits[1][3] = true;
+fractalCircuits[1][4] = true;
+fractalCircuits[1][5] = true;
+
+var crazySquaresRules = makeRuleArray();
+crazySquaresRules[0][1] = true;
+crazySquaresRules[0][2] = true;
+crazySquaresRules[0][3] = true;
+crazySquaresRules[0][4] = true;
+crazySquaresRules[0][5] = true;
+crazySquaresRules[0][6] = true;
+crazySquaresRules[0][7] = true;
+crazySquaresRules[0][8] = true;
+crazySquaresRules[1][0] = true;
+crazySquaresRules[1][1] = true;
+crazySquaresRules[1][2] = true;
+crazySquaresRules[1][3] = true;
+crazySquaresRules[1][4] = true;
+crazySquaresRules[1][5] = true;
+crazySquaresRules[1][6] = true;
+crazySquaresRules[1][7] = true;
+
 var amoebaRules = makeRuleArray();
 amoebaRules[0][3] = true;
 amoebaRules[1][4] = true;
@@ -52,6 +84,7 @@ function makeRuleArray(){
     
     return ruleArray;
 }
+
 
 
 var GoL = {
@@ -84,6 +117,15 @@ var GoL = {
     }
     else if(r === "Conway's Original"){
         rules = conwayRules;
+    }
+    else if(r === "Crazy Squares"){
+        rules = crazySquaresRules;
+    }
+    else if(r === "Fractal Circuits"){
+        rules = fractalCircuitsRules;
+    }
+    else if(r === "Circuit City"){
+        rules = circuitCityRules;
     }
   },
 
