@@ -108,9 +108,7 @@ var GoL3D = {
         for (var x = 0; x < GoL3D.size; x++) {
             for(var y = 0; y < GoL3D.size; y++) {
                 var cube = GoL3D.liveCubes[x][y];
-                console.log(cube);
                 if (cube) {
-                    console.log(cube.age);
                     cube.age++;
                     var hue = (.1*Math.sqrt(cube.age)) % 1.0;
                     cube.material.color.setHSV(hue,1.0,1.0);
