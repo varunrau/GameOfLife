@@ -26,18 +26,18 @@ new Ruleset("Amoeba", Arrays.asList(Arrays.asList(3), Arrays.asList(4, 5, 6, 7, 
 new Ruleset("Diamonds", Arrays.asList(Arrays.asList(3, 4, 5, 6, 7, 8), Arrays.asList(4, 5, 6, 7))),
 */
 
-var conwayRules = makeRuleArray();
+var conwayRules = makeRuleArray(false);
 conwayRules[0][3] = true;
 conwayRules[1][2] = true;
 conwayRules[1][3] = true;
 
-var circuitCityRules = makeRuleArray();
+var circuitCityRules = makeRuleArray(false);
 circuitCityRules[0][3] = true;
 circuitCityRules[1][2] = true;
 circuitCityRules[1][3] = true;
 circuitCityRules[1][4] = true;
 
-var fractalCircuits = makeRuleArray();
+var fractalCircuits = makeRuleArray(false);
 fractalCircuits[0][1] = true;
 fractalCircuits[0][2] = true;
 fractalCircuits[1][2] = true;
