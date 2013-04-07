@@ -1,4 +1,5 @@
 var worker = null
+var CUBE_SIZE = 40;
 
 var GoL3D = {
   init: function() {
