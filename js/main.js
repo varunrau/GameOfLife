@@ -10,8 +10,6 @@ var appendButtons = function() {
         $('.example-rules').append('<button class="example-button" id="btn' + example + '">' + buttonNames[example] + '</button>');
     }
     $(".example-rules button").click(function() {
-        console.log($(this).index());
-
         GoL3D.setRules(buttonNames[($(this).index())]);
     });
 };
