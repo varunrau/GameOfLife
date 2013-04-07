@@ -4,6 +4,7 @@
 // which is the most demanding task for the cpu.
 
 var NUM_GENERATIONS = 30;
+var ALIVE = 10;
 
 var rules = new Array();
 
@@ -69,8 +70,8 @@ var GoL = {
       x = floor(random()*GoL.size);
       y = floor(random()*GoL.size);
 
-      if (GoL.grid[x][y] != 10) {
-        GoL.grid[x][y] = 10;
+      if (GoL.grid[x][y] != ALIVE) {
+        GoL.grid[x][y] = ALIVE;
         GoL.alive.push([x,y]);
       }
     }
@@ -110,23 +111,23 @@ var GoL = {
 
     for (i = 0, l = GoL.candidates.length; i < l; i++) {
       candidate = GoL.candidates[i]; x = candidate[0]; y = candidate[1];
-      neighbours = GoL.grid[x][y] % 10;
+      neighbours = GoL.grid[x][y] % ALIVE;
 
-      if (GoL.grid[x][y] >= 10)
+      if (GoL.grid[x][y] >= ALIVE)
         if (rules[1][neighbours] === false){//neighbours < 2 || neighbours > 3) {
           GoL.dead.push(candidate);
           GoL.grid[x][y] = undefined;
         } else {
-          GoL.grid[x][y] = 10
-          GoL.alive.push(candidate)
+          GoL.grid[x][y] = ALIVE;
+          GoL.alive.push(candidate);
         }
       else
         if (rules[0][GoL.grid[x][y]] === true){//GoL.grid[x][y] == 3) {
-          GoL.grid[x][y] = 10;
+          GoL.grid[x][y] = ALIVE;
           GoL.born.push(candidate);
-          GoL.alive.push(candidate)
+          GoL.alive.push(candidate);
         } else
-          GoL.grid[x][y] = undefined
+          GoL.grid[x][y] = undefined;
     };
   },
 
