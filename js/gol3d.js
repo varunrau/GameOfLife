@@ -188,7 +188,8 @@ var GoL3D = {
       map: THREE.ImageUtils.loadTexture("/images/square-outline.png")
     });
 
-    this.cubeMaterial.color.setHSV(0.1, 1.0, 1.0);
+    var hue = .7;
+    this.cubeMaterial.color.setHSV(hue, 1.0, 1.0);
     this.cubeMaterial.ambient = this.cubeMaterial.color;
 
     // Build a pool of objects to avoid creating/deleting
