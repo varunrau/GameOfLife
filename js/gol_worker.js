@@ -12,6 +12,9 @@ var ALIVE = 11;
 //The maximum number of neighbors a cell can have
 var NUM_NEIGHBORS = 8;
 
+//How long to wait before computing another batch of time-steps.
+var DELAY_TIME = 300;
+
 /*
 new Ruleset("Conways Original", Arrays.asList(Arrays.asList(3), Arrays.asList(2, 3))),
 new Ruleset("Circuit City", Arrays.asList(Arrays.asList(3), Arrays.asList(2, 3, 4))),
@@ -180,7 +183,7 @@ var GoL = {
   // that way the syncrhonization time between this worker,
   // and the main js is reduced to a 1/10th of the time.
   run: function() {
-    setTimeout(GoL.run, 300);
+    setTimeout(GoL.run, DELAY_TIME);
 
     var generations = [];
 
