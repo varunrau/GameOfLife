@@ -71,6 +71,11 @@ var GoL3D = {
   // Also store it in the liveCubes matrix.
   drawCell: function(coords) {
     var cube = this.getCube();
+    
+    cube.age++;
+    hue = 20*Math.sqrt(cube.age);
+    cube.material.color.setHSV(hue,1.0,1.0);
+    
     var size = this.size / 2;
 
     cube.position.x = (coords[0] - size) * 20 + 10;
@@ -188,7 +193,8 @@ var GoL3D = {
       map: THREE.ImageUtils.loadTexture("/images/square-outline.png")
     });
 
-    this.cubeMaterial.color.setHSV(0.1, 1.0, 1.0);
+    var hue = .7;
+    this.cubeMaterial.color.setHSV(hue, 1.0, 1.0);
     this.cubeMaterial.ambient = this.cubeMaterial.color;
 
     // Build a pool of objects to avoid creating/deleting
@@ -204,6 +210,8 @@ var GoL3D = {
 
   buildCube: function() {
     var cube = new THREE.Mesh(this.cubeGeo, this.cubeMaterial);
+
+    cube.age = 0;
 
     cube.visible = false;
 
