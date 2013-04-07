@@ -169,7 +169,7 @@ var GoL3D = {
   },
 
   cubesLoop: function() {
-    setTimeout(GoL3D.cubesLoop, 100);
+    setTimeout(GoL3D.cubesLoop, 10);
 
     var gen = GoL3D.nextGenerations.shift();
     var i, l;
