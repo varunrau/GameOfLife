@@ -8,9 +8,9 @@ var ALIVE = 11;
 var NUM_NEIGHBORS = 8;
 
 var conway = makeRuleArray();
-rules[0][3] = true;
-rules[1][2] = true;
-rules[1][3] = true;
+conway[0][3] = true;
+conway[1][2] = true;
+conway[1][3] = true;
 
 var amoeba_rules = makeRuleArray();
 
