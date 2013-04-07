@@ -71,6 +71,11 @@ var GoL3D = {
   // Also store it in the liveCubes matrix.
   drawCell: function(coords) {
     var cube = this.getCube();
+    
+    cube.age++;
+    hue = 20*Math.sqrt(cube.age);
+    cube.material.color.setHSV(hue,1.0,1.0);
+    
     var size = this.size / 2;
 
     cube.position.x = (coords[0] - size) * 20 + 10;
@@ -205,6 +210,8 @@ var GoL3D = {
 
   buildCube: function() {
     var cube = new THREE.Mesh(this.cubeGeo, this.cubeMaterial);
+
+    cube.age = 0;
 
     cube.visible = false;
 
